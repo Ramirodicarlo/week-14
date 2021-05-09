@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "server": "npx nodemon ./server.js",
     "test": "npx wdio run ./wdio.conf.js --spec loginAutomated.js",
     "test2": "npx wdio run ./wdio.conf.js --spec registerAutomated.js"
   },
@@ -22,6 +23,7 @@
     "babel-jest": "^26.6.3",
     "chromedriver": "^90.0.0",
     "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
     "wdio-chromedriver-service": "^7.0.0"
   },
   "dependencies": {

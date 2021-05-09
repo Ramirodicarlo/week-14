@@ -15,13 +15,27 @@ app.listen(4000, () => {
 })
 
 function handleLogin(req, res) {
-  console.log(req.body)
-  res.json({result:"Success"}) 
+  const newUser = {
+    email: req.body.email,
+    password: req.body.pass
+  };
+  res.status(200).json({
+    result: 'Sucess',
+    data: newUser
+  });
 }
 
 function handleRegister (req, res) {
-  console.log(req.body)
-  res.json({result:"Success"})
+  const newUser = {
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.pass,
+    confirmPassword: req.body.cpass
+  };
+  res.status(200).json({
+    result: 'Sucess',
+    data: newUser
+  });
 }
 
 app.post('/register', handleRegister)
