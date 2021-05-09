@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --color",
-    "test-coverage": "jest --coverage --color",
-    "test2": "npx wdio run ./wdio.conf.js --spec search-wikipedia.js"
+    "test": "npx wdio run ./wdio.conf.js --spec loginAutomated.js",
+    "test2": "npx wdio run ./wdio.conf.js --spec registerAutomated.js"
   },
   "jest": {
     "transform": {
