@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<header>
+    <h1>
+        This is my login page
+    </h1>
+</header>
+<body>
+    <form id="form">
+        <label id="email" for="email">Email</label>
+        <input id="emaili" type="email" name="email" required>
+        <p id="pemail">
+        </p>
+        <label id="password" for="password">Password</label>
+        <input id="passwordi" type="password" name="password" required>
+        <p id="ppassword"> 
+        </p>
+        <input id="submit-b" type="submit" value="Login" name ="login" class="button">
+        <p>
+            You dont haver an account?
+        </p>
+        <p>
+            <a id="anchor-register" href="./register.html">
+               Go to register.
+            </a>
+        </p>
+    </form>
+    <div id="validation">
+    </div>
+</body>
+<script src="./Js/login.js"></script>
+<script src="./Js/login-submit.js"></script>
+</html>
