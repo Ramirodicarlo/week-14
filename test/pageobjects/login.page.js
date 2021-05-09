@@ -2,9 +2,9 @@ const Page = require('./page');
 
 class LoginPage extends Page {
 
-    get email () {return $("#emaili")}
-    get password () { return $('#passwordi') }
-    get btnSubmit () { return $('#submit-b') }
+    get email () {return $("#emailInput")}
+    get password () { return $('#passwordInput') }
+    get btnSubmit () { return $('#submitButton') }
     get validation () {return $("#validation")}
 
     open () {

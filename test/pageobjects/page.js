@@ -9,6 +9,6 @@ module.exports = class Page {
     * @param path path of the sub page (e.g. /path/to/page.html)
     */
     open (path) {
-        return browser.url(`https://localhost:4000/public/${path}`)
+        return browser.url(`https://ramirodicarlo.github.io/week-14/${path}`)
     }
 }

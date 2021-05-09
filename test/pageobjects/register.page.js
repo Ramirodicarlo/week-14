@@ -2,11 +2,11 @@ const Page = require('./page');
 
 class RegisterPage extends Page {
 
-    get email () {return $("#emaili")}
-    get username () { return $('#fnamei') }
-    get password () { return $('#passwordi') }
-    get cpassword () { return $('#confirm-passwordi') }
-    get btnSubmit () { return $('#submit-b') }
+    get email () {return $("#emailImput")}
+    get username () { return $('#fullNameInput') }
+    get password () { return $('#passwordInput') }
+    get cpassword () { return $('#confirmPasswordInput') }
+    get btnSubmit () { return $('#submitButton') }
     get validation () {return $("#validation")}
 
     open () {
