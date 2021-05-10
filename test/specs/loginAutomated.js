@@ -1,4 +1,4 @@
-const loginPage = require("../pageobjects/login.page");
+const loginPage = require("../pageobjects/login.page.js");
 
 
 describe("Login automated test", () =>{

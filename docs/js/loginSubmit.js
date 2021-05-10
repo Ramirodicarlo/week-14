@@ -1,9 +1,12 @@
+console.log("Run validation")
+
 const emailInput = document.getElementById('emailInput');
 const passwordInput = document.getElementById('passwordInput');
 const formElement = document.getElementById("loginForm");
 let hasErrors = true;
+
 emailInput.onblur = (event) => {
-    const email = event.target.value; // Obtengo el valor del input
+    const email = event.target.value;
     const emailRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     const isValidEmail = emailRegex.test(email);
     if(!isValidEmail) {
@@ -11,7 +14,6 @@ emailInput.onblur = (event) => {
         document.getElementById("emailError").innerHTML = errorMessage;
         hasErrors = true;
     } else {
-        // Si es valido el email
         hasErrors = false;
     }
 };
@@ -44,6 +46,7 @@ formElement.onsubmit = (event) => {
         const emailValue = emailInput.value;
         const passwordValue = passwordInput.value;
         document.getElementById('validation').innerHTML = `Information submited: ${emailValue} ${passwordValue}`;
+        document.getElementById("validation").style.display = "block";
         fetch('http://localhost:4000/login', {
             method: 'PUT',
             headers: {
@@ -57,5 +60,9 @@ formElement.onsubmit = (event) => {
         .then(response => response.json())
         .then(data => console.log(data))
         .catch(error => console.log('Error:', error))
+    }
+    else{
+        document.getElementById('validation').innerHTML = "Information enter wrong"
+        document.getElementById("validation").style.display = "block";
     }
 };

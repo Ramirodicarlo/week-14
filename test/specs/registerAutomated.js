@@ -1,4 +1,4 @@
-const registerPage = require("../pageobjects/register.page");
+const registerPage = require("../pageobjects/register.page.js");
 
 describe("Register automated test", () =>{
     it("Set values and register",() =>{
