@@ -47,49 +47,66 @@ describe("Register automated test", () =>{
         })
         it("Validate validation div",() => {
             registerPage.open()
-            registerPage.validationDiv.isExisting()
+            registerPage.validation.isExisting()
         })
     })
     describe("Validate if the inputs has errors, show message",() =>{
         it("Validate username paragraf",() => {
             registerPage.open()
-            registerPage.username.setValue("Jhones")
+            registerPage.username.setValue("Jhonese")
             browser.keys("Tab")
-            expect(registerPage.usernameParagraf).toHaveText(["Full name need to contain First Name and Last Name.",
-            "Full name need to contain at least 6 characters."])
+            expect(registerPage.usernameParagraf).toHaveText("Full name need to contain First Name and Last Name.")
+        })
+        it("Validate username paragraf",() => {
+            registerPage.open()
+            registerPage.username.setValue("j a")
+            browser.keys("Tab")
+            expect(registerPage.usernameParagraf).toHaveText("Full name need to contain at least 6 characters.")
         })
         it("Validate email paragraf",() => {
             registerPage.open()
-            registerPage.emailParagraf.isExisting()
+            registerPage.email.setValue("jhones")
+            browser.keys("Tab")
+            expect(registerPage.emailParagraf).toHaveText("You must enter a valid email.")
         })
         it("Validate password paragraf",() => {
             registerPage.open()
-            registerPage.passwordParagraf.isExisting()
+            registerPage.password.setValue("aaaa")
+            browser.keys("Tab")
+            expect(registerPage.passwordParagraf).toHaveText("Password need to contain at least 8 characters.")
         })
-        it("Validate confirm password paragraf",() => {
+        it("Validate password paragraf",() => {
             registerPage.open()
-            registerPage.cpasswordParagraf.isExisting()
+            registerPage.password.setValue("----...a")
+            browser.keys("Tab")
+            expect(registerPage.passwordParagraf).toHaveText("Password must contain numbers or letters.")
         })
-        it("Validate validation div",() => {
+        it("Validate confirm paragraf",() => {
             registerPage.open()
-            registerPage.validationDiv.isExisting()
+            registerPage.cpassword.setValue("aaa")
+            browser.keys("Tab")
+            expect(registerPage.cpasswordParagraf).toHaveText("Password do not match")
         })
+        
     })
-    it("Set wrong values and see a message error on submit",() =>{
-        registerPage.open()
-        registerPage.username.setValue("Jhon")
-        registerPage.email.setValue("casa@gmail.com")
-        registerPage.password.setValue(1234567)
-        registerPage.cpassword.setValue(12345678)
-        registerPage.submit()
-        registerPage.validation.isEqual("You had enter wrong information")
-    })    
-    it("Set values and register",() =>{
-        registerPage.open()
-        registerPage.username.setValue("Jhon Sena")
-        registerPage.email.setValue("casa@gamail.com")
-        registerPage.password.setValue(12345678)
-        registerPage.cpassword.setValue(12345678)
-        registerPage.submit()
+    describe("Validate submit", () =>{
+        it("Set wrong values and see a message error on submit",() =>{
+            registerPage.open()
+            registerPage.username.setValue("Jhon")
+            registerPage.email.setValue("casa@gmail.com")
+            registerPage.password.setValue(1234567)
+            registerPage.cpassword.setValue(12345678)
+            registerPage.submit()
+            registerPage.validation.toHaveText("You had enter wrong information")
+        })    
+        it("Set values and register",() =>{
+            registerPage.open()
+            registerPage.username.setValue("Jhon Sena")
+            registerPage.email.setValue("casa@gmail.com")
+            registerPage.password.setValue(12345678)
+            registerPage.cpassword.setValue(12345678)
+            registerPage.submit()
+            registerPage.validation.toHaveText("Information submited: Jhon Sena casa@gmail.com 12345678 12345678")
+        })
     })
 })

@@ -18,8 +18,7 @@ class RegisterPage extends Page {
     get emailParagraf () {return $("#emailError")}
     get passwordParagraf () { return $('#passwordError') }
     get cpasswordParagraf () { return $('#confirmPasswordError') }
-    get validationDiv () {return $("#validation")}
-    
+
     open () {
         return super.open('register.html');
     }
