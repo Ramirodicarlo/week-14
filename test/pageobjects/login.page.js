@@ -6,6 +6,7 @@ class LoginPage extends Page {
     get usernameLabel () { return $('#fullName') }
     get emailLabel () {return $("#email")}
     get passwordLabel () { return $('#password') }
+    get link () { return $('a') }
     //Inputs
     get email () {return $("#emailInput")}
     get password () { return $('#passwordInput') }

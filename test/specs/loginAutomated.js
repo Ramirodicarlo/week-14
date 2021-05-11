@@ -7,15 +7,22 @@ describe("Register automated test", () =>{
             loginPage.open()
             loginPage.emailLabel.isExisting()
             loginPage.email.isExisting()
+            expect(loginPage.email.getAttribute("type")).toMatch("email")
         })
         it("Validate password input and label",() => {
             loginPage.open()
             loginPage.passwordLabel.isExisting()
             loginPage.password.isExisting()
+            expect(loginPage.password.getAttribute("type")).toMatch("password")
         })
         it("Validate submit button",() => {
             loginPage.open()
             loginPage.btnSubmit.isExisting()
+            expect(loginPage.btnSubmit.getAttribute("type")).toMatch("submit")
+        })
+        it("Validation of link to register page", () => {
+            loginPage.open()
+            expect(loginPage.link.getAttribute("href")).toMatch("./register.html")
         })
     })
     describe("Validate display error paragraf",() =>{
@@ -56,19 +63,20 @@ describe("Register automated test", () =>{
     describe("Validate submit", () =>{
         it("Set wrong values and see a message error on submit",() =>{
             loginPage.open()
+            browser.setupInterceptor()
             loginPage.email.setValue("casa@gmail.com")
             loginPage.password.setValue(1234567)
             browser.keys("Tab")
             loginPage.submit()
             expect(loginPage.validation).toHaveText("You had enter wrong information")
         })    
-       // it("Set wrong values and see a message error on submit",() =>{
-        //    loginPage.open()
-       //     loginPage.email.setValue("casa@gmail.com")
-       //     loginPage.password.setValue(12345679)
-      //      loginPage.submit()
-      //      expect(browser.status()).toEqual(401)
-      //  })    
+        it("Set wrong values and see a message error on submit",() =>{
+            loginPage.open()
+            loginPage.email.setValue("casa@gmail.com")
+            loginPage.password.setValue(12345679)
+            loginPage.submit()
+            browser.expectRequest("put","http://localhost:4000/login",401)
+        })    
         it("Set values and register",() =>{
             loginPage.open()
             loginPage.email.setValue("casa@gmail.com")

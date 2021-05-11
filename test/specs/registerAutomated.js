@@ -7,25 +7,39 @@ describe("Register automated test", () =>{
             registerPage.open()
             registerPage.usernameLabel.isExisting()
             registerPage.username.isExisting()
+            expect(registerPage.username.getAttribute("type")).toMatch("text")
         })
         it("Validate email input and label",() => {
             registerPage.open()
             registerPage.emailLabel.isExisting()
             registerPage.email.isExisting()
+            expect(registerPage.email.getAttribute("type")).toMatch("email")
         })
         it("Validate password input and label",() => {
             registerPage.open()
             registerPage.passwordLabel.isExisting()
             registerPage.password.isExisting()
+            expect(registerPage.password.getAttribute("type")).toMatch("password")
         })
         it("Validate confirm pasword input and label",() => {
             registerPage.open()
             registerPage.cpasswordLabel.isExisting()
             registerPage.cpassword.isExisting()
+            expect(registerPage.cpassword.getAttribute("type")).toMatch("password")
         })
         it("Validate submit button",() => {
             registerPage.open()
             registerPage.btnSubmit.isExisting()
+            expect(registerPage.btnSubmit.getAttribute("type")).toMatch("submit")
+        })
+        it("Validate reset button",() => {
+            registerPage.open()
+            registerPage.btnReset.isExisting()
+            expect(registerPage.btnReset.getAttribute("type")).toMatch("reset")
+        })
+        it("Validation of link to register page", () => {
+            registerPage.open()
+            expect(registerPage.link.getAttribute("href")).toMatch("./login.html")
         })
     })
     describe("Validate display error paragraf",() =>{
