@@ -77,7 +77,7 @@ describe("Register automated test", () =>{
         })
         it("Validate password paragraf",() => {
             registerPage.open()
-            registerPage.password.setValue("----...a")
+            registerPage.password.setValue("----....")
             browser.keys("Tab")
             expect(registerPage.passwordParagraf).toHaveText("Password must contain numbers or letters.")
         })
@@ -97,7 +97,7 @@ describe("Register automated test", () =>{
             registerPage.password.setValue(1234567)
             registerPage.cpassword.setValue(12345678)
             registerPage.submit()
-            registerPage.validation.toHaveText("You had enter wrong information")
+            expect(registerPage.validation).toHaveText("You had enter wrong information")
         })    
         it("Set values and register",() =>{
             registerPage.open()
@@ -106,7 +106,7 @@ describe("Register automated test", () =>{
             registerPage.password.setValue(12345678)
             registerPage.cpassword.setValue(12345678)
             registerPage.submit()
-            registerPage.validation.toHaveText("Information submited: Jhon Sena casa@gmail.com 12345678 12345678")
+            expect(registerPage.validation).toHaveText("Information submited: Jhon Sena casa@gmail.com 12345678 12345678")
         })
     })
 })

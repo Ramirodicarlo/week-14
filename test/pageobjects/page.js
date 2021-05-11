@@ -2,6 +2,6 @@
 module.exports = class Page {
 
     open (path) {
-        return browser.url(`https://ramirodicarlo.github.io/week-14/${path}`)
+        return browser.url(`http://localhost:4000/public/${path}`)
     }
 }

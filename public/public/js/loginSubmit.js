@@ -62,7 +62,7 @@ formElement.onsubmit = (event) => {
         .catch(error => console.log('Error:', error))
     }
     else{
-        document.getElementById('validation').innerHTML = "Information enter wrong"
+        document.getElementById('validation').innerHTML = "You had enter wrong information"
         document.getElementById("validation").style.display = "block";
     }
 };
