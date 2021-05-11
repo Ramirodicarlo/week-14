@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio run ./wdio.conf.js --spec registerAutomated.js",
-    "test2": "npx wdio run ./wdio.conf.js --spec loginAutomated.js"
+    "testr": "npx wdio run ./wdio.conf.js --spec registerAutomated.js",
+    "testl": "npx wdio run ./wdio.conf.js --spec loginAutomated.js"
   },
   "jest": {
     "transform": {
